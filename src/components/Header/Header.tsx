@@ -1,7 +1,6 @@
 import {
   Button,
   chakra,
-  CloseButton,
   Flex,
   Heading,
   HStack,
@@ -14,16 +13,16 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
-  VStack,
 } from '@chakra-ui/react';
 import { useViewportScroll } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import { AiOutlineMenu, AiFillHome, AiOutlineInbox } from 'react-icons/ai';
-import { BsFillCameraVideoFill } from 'react-icons/bs';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 import { MutableRefObject } from 'react';
 import { FC, useEffect, useRef, useState } from 'react';
 import { Features } from './Features';
+import { MobileNavContent } from './MobileNavContent';
+import { Logo } from './Logo';
 
 export const Header: FC = ({ ...props }) => {
   const { toggleColorMode: toggleMode } = useColorMode();
@@ -40,44 +39,6 @@ export const Header: FC = ({ ...props }) => {
   }, [scrollY]);
   const cl = useColorModeValue('gray.800', 'white');
   const mobileNav = useDisclosure();
-
-  const MobileNavContent = (
-    <VStack
-      pos="absolute"
-      top={0}
-      left={0}
-      right={0}
-      display={mobileNav.isOpen ? 'flex' : 'none'}
-      flexDirection="column"
-      p={2}
-      pb={4}
-      m={2}
-      bg={bg}
-      spacing={3}
-      rounded="sm"
-      shadow="sm"
-    >
-      <CloseButton
-        aria-label="Close menu"
-        justifySelf="self-start"
-        onClick={mobileNav.onClose}
-      />
-      <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-        Dashboard
-      </Button>
-      <Button
-        w="full"
-        variant="solid"
-        colorScheme="brand"
-        leftIcon={<AiOutlineInbox />}
-      >
-        Inbox
-      </Button>
-      <Button w="full" variant="ghost" leftIcon={<BsFillCameraVideoFill />}>
-        Videos
-      </Button>
-    </VStack>
-  );
 
   return (
     <>
@@ -100,38 +61,10 @@ export const Header: FC = ({ ...props }) => {
             justifyContent="space-between"
           >
             <Flex align="flex-start">
-              <Link href="/">
-                <HStack>
-                  {/* <Logo /> */}
-                  <Heading>Logo</Heading>
-                </HStack>
-              </Link>
+              <Logo />
             </Flex>
             <Flex>
               <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
-                <Popover>
-                  <PopoverTrigger>
-                    <Button
-                      bg={bg}
-                      color="gray.500"
-                      display="inline-flex"
-                      alignItems="center"
-                      fontSize="md"
-                      _hover={{ color: cl }}
-                      _focus={{ boxShadow: 'none' }}
-                      rightIcon={<IoIosArrowDown />}
-                    >
-                      Features
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    w="100vw"
-                    maxW="md"
-                    _focus={{ boxShadow: 'md' }}
-                  >
-                    <Features />
-                  </PopoverContent>
-                </Popover>
                 <Button
                   bg={bg}
                   color="gray.500"
@@ -187,7 +120,11 @@ export const Header: FC = ({ ...props }) => {
               />
             </Flex>
           </Flex>
-          {MobileNavContent}
+          <MobileNavContent
+            bg={bg}
+            isOpen={mobileNav.isOpen}
+            onClose={mobileNav.onClose}
+          />
         </chakra.div>
       </chakra.header>
     </>
