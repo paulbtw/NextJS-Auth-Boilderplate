@@ -2,13 +2,8 @@ import {
   Button,
   chakra,
   Flex,
-  Heading,
   HStack,
   IconButton,
-  Link,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
   Spacer,
   useColorMode,
   useColorModeValue,
@@ -17,10 +12,8 @@ import {
 import { useViewportScroll } from 'framer-motion';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { IoIosArrowDown } from 'react-icons/io';
 import { MutableRefObject } from 'react';
 import { FC, useEffect, useRef, useState } from 'react';
-import { Features } from './Features';
 import { MobileNavContent } from './MobileNavContent';
 import { Logo } from './Logo';
 
@@ -63,32 +56,7 @@ export const Header: FC = ({ ...props }) => {
             <Flex align="flex-start">
               <Logo />
             </Flex>
-            <Flex>
-              <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
-                <Button
-                  bg={bg}
-                  color="gray.500"
-                  display="inline-flex"
-                  alignItems="center"
-                  fontSize="md"
-                  _hover={{ color: cl }}
-                  _focus={{ boxShadow: 'none' }}
-                >
-                  Blog
-                </Button>
-                <Button
-                  bg={bg}
-                  color="gray.500"
-                  display="inline-flex"
-                  alignItems="center"
-                  fontSize="md"
-                  _hover={{ color: cl }}
-                  _focus={{ boxShadow: 'none' }}
-                >
-                  Pricing
-                </Button>
-              </HStack>
-            </Flex>
+
             <Spacer />
             <Flex justify="flex-end" align="center" color="gray.400">
               <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
