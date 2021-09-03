@@ -1,5 +1,4 @@
 import {
-  Button,
   chakra,
   Flex,
   HStack,
@@ -16,8 +15,9 @@ import { MutableRefObject } from 'react';
 import { FC, useEffect, useRef, useState } from 'react';
 import { MobileNavContent } from './MobileNavContent';
 import { Logo } from './Logo';
+import { NextLinkButton } from '../NextLinkButton';
 
-export const Header: FC = ({ ...props }) => {
+export const Header: FC = () => {
   const { toggleColorMode: toggleMode } = useColorMode();
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
@@ -30,7 +30,7 @@ export const Header: FC = ({ ...props }) => {
   useEffect(() => {
     return scrollY.onChange(() => setY(scrollY.get()));
   }, [scrollY]);
-  const cl = useColorModeValue('gray.800', 'white');
+
   const mobileNav = useDisclosure();
 
   return (
@@ -60,12 +60,22 @@ export const Header: FC = ({ ...props }) => {
             <Spacer />
             <Flex justify="flex-end" align="center" color="gray.400">
               <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
-                <Button colorScheme="brand" variant="ghost" size="sm">
+                <NextLinkButton
+                  colorScheme="brand"
+                  variant="ghost"
+                  size="sm"
+                  to="/auth/signin"
+                >
                   Sign in
-                </Button>
-                <Button colorScheme="brand" variant="solid" size="sm">
+                </NextLinkButton>
+                <NextLinkButton
+                  colorScheme="brand"
+                  variant="solid"
+                  size="sm"
+                  to="/auth/signup"
+                >
                   Sign up
-                </Button>
+                </NextLinkButton>
               </HStack>
               <IconButton
                 size="md"
