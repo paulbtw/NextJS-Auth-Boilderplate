@@ -13,7 +13,6 @@ interface SigninProps {
 }
 
 const Signin: NextPage<SigninProps> = ({ providers }) => {
-  // console.log(providers);
   return (
     <>
       <div>Sign In</div>

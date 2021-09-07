@@ -1,5 +1,7 @@
-import { Heading, HStack } from '@chakra-ui/react';
 import { FC } from 'react';
+
+import { Heading, HStack } from '@chakra-ui/react';
+
 import { NextLink } from '../NextLink';
 
 export const Logo: FC = () => {

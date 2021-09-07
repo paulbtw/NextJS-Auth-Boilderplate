@@ -1,7 +1,9 @@
-import { CloseButton, VStack } from '@chakra-ui/react';
 import { FC } from 'react';
+
+import { CloseButton, VStack } from '@chakra-ui/react';
 import { AiFillHome, AiOutlineInbox } from 'react-icons/ai';
 import { BsFillCameraVideoFill } from 'react-icons/bs';
+
 import { NextLinkButton } from '../NextLinkButton';
 
 interface MobileNavContentInterface {
