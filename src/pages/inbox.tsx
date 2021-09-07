@@ -9,7 +9,7 @@ const Inbox: ComponentWithAuth = () => {
 };
 
 Inbox.auth = {
-  role: [UserRoleEnum.ADMIN],
+  role: [UserRoleEnum.USER],
   loading: <LoadingAuth />,
   redirectUrl: '/',
 };

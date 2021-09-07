@@ -15,3 +15,10 @@ export interface AuthEnabledComponentConfig {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ComponentWithAuth<PropsType = any> = React.FC<PropsType> &
   AuthEnabledComponentConfig;
+
+export interface UserInterface {
+  role: string;
+  name?: string;
+  email?: string;
+  image?: string;
+}

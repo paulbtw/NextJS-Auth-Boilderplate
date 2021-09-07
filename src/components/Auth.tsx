@@ -28,5 +28,8 @@ export const Auth: FC<AuthEnabledComponentConfig> = ({ children, auth }) => {
 
   // Session is being fetched, or no user.
   // If no user, useEffect() will redirect.
+  if (auth.loading) {
+    return auth.loading;
+  }
   return <div>Loading...</div>;
 };
