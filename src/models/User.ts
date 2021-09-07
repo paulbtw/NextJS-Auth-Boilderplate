@@ -13,6 +13,7 @@ export default class User extends (<any>Adapters.TypeORM.Models.User.model) {
     emailVerified: Date | undefined,
   ) {
     super(name, email, image, emailVerified);
+    if (!this.role) this.role = 'user';
   }
 }
 

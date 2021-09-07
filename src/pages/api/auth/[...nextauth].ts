@@ -1,10 +1,8 @@
-import NextAuth, { Session } from 'next-auth';
+import NextAuth from 'next-auth';
 import Adapters from 'next-auth/adapters';
-import { Awaitable } from 'next-auth/internals/utils';
 import Providers from 'next-auth/providers';
 
 import Models from '../../../models';
-import { UserInterface } from '../../../types/auth';
 
 export default NextAuth({
   providers: [
@@ -65,12 +63,12 @@ export default NextAuth({
     redirect: async (url, _baseUrl) => {
       return Promise.resolve(url);
     },
-    session: (session: Session, user: UserInterface): Awaitable<Session> => {
+    session: (session, user) => {
       return {
         ...session,
         user: {
           ...session.user,
-          role: user.role || 'user',
+          role: (user.role as string) || 'user',
         },
       };
     },
