@@ -1,15 +1,12 @@
 {
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "jest.autoRun": {
-    "watch": false,
-    "onSave": "test-file"
-  },
   "search.exclude": {
     "package-lock.json": true
   },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": false,
+  "files.eol": "\n",
   "editor.codeActionsOnSave": [
     "source.addMissingImports",
     "source.fixAll.eslint"
@@ -22,5 +19,8 @@
   "[jsonc]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   }
 }
