@@ -1,7 +1,17 @@
-import { FC } from 'react';
+import React from 'react';
 
-const Inbox: FC = () => {
+import { LoadingAuth } from '../components/LoadingAuth';
+import { ComponentWithAuth } from '../types/auth';
+import { UserRoleEnum } from '../types/types';
+
+const Inbox: ComponentWithAuth = () => {
   return <div>asdasdasdasd</div>;
+};
+
+Inbox.auth = {
+  role: [UserRoleEnum.ADMIN],
+  loading: <LoadingAuth />,
+  redirectUrl: '/',
 };
 
 export default Inbox;

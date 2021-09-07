@@ -1,3 +1,5 @@
+import { FC, useCallback } from 'react';
+
 import {
   chakra,
   Flex,
@@ -8,36 +10,35 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import { useViewportScroll } from 'framer-motion';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { useSession } from 'next-auth/client';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { MutableRefObject } from 'react';
-import { FC, useEffect, useRef, useState } from 'react';
-import { MobileNavContent } from './MobileNavContent';
+import { FaMoon, FaSun } from 'react-icons/fa';
+
 import { Logo } from './Logo';
-import { NextLinkButton } from '../NextLinkButton';
+import { MobileNavContent } from './MobileNavContent';
+import { SignInPopover } from './SignInPopover';
+import { SignOutButton } from './SignOutButton';
 
 export const Header: FC = () => {
   const { toggleColorMode: toggleMode } = useColorMode();
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const bg = useColorModeValue('white', 'gray.800');
-  const ref: MutableRefObject<HTMLElement | null> = useRef(null);
-  const [y, setY] = useState(0);
-  const { height = 0 } = ref.current ? ref.current.getBoundingClientRect() : {};
-
-  const { scrollY } = useViewportScroll();
-  useEffect(() => {
-    return scrollY.onChange(() => setY(scrollY.get()));
-  }, [scrollY]);
 
   const mobileNav = useDisclosure();
+
+  const [session, loading] = useSession();
+
+  const authenticationButtonComponent = useCallback(() => {
+    if (loading) return null;
+    if (session) return <SignOutButton />;
+    return <SignInPopover />;
+  }, [loading, session]);
 
   return (
     <>
       <chakra.header
-        ref={ref}
-        shadow={y > height ? 'sm' : undefined}
+        shadow="md"
         transition="box-shadow 0.2s"
         bg={bg}
         borderTop="6px solid"
@@ -60,23 +61,9 @@ export const Header: FC = () => {
             <Spacer />
             <Flex justify="flex-end" align="center" color="gray.400">
               <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
-                <NextLinkButton
-                  colorScheme="brand"
-                  variant="ghost"
-                  size="sm"
-                  to="/auth/signin"
-                >
-                  Sign in
-                </NextLinkButton>
-                <NextLinkButton
-                  colorScheme="brand"
-                  variant="solid"
-                  size="sm"
-                  to="/auth/signup"
-                >
-                  Sign up
-                </NextLinkButton>
+                {authenticationButtonComponent()}
               </HStack>
+
               <IconButton
                 size="md"
                 fontSize="lg"
