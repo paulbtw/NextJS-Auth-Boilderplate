@@ -14,6 +14,7 @@ import { useSession } from 'next-auth/client';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
+import { NextLinkButton } from '../NextLinkButton';
 import { Logo } from './Logo';
 import { MobileNavContent } from './MobileNavContent';
 import { SignInPopover } from './SignInPopover';
@@ -24,6 +25,7 @@ export const Header: FC = () => {
   const text = useColorModeValue('dark', 'light');
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const bg = useColorModeValue('white', 'gray.800');
+  const cl = useColorModeValue('gray.800', 'white');
 
   const mobileNav = useDisclosure();
 
@@ -57,6 +59,24 @@ export const Header: FC = () => {
             <Flex align="flex-start">
               <Logo />
             </Flex>
+            {session && (
+              <Flex>
+                <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
+                  <NextLinkButton
+                    bg={bg}
+                    color="gray.500"
+                    display="inline-flex"
+                    alignItems="center"
+                    fontSize="md"
+                    _hover={{ color: cl }}
+                    _focus={{ boxShadow: 'none' }}
+                    to="/inbox"
+                  >
+                    Inbox
+                  </NextLinkButton>
+                </HStack>
+              </Flex>
+            )}
 
             <Spacer />
             <Flex justify="flex-end" align="center" color="gray.400">
