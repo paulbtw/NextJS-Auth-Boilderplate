@@ -1,34 +1,124 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Boilerplate NextJS 11+, Chakra-UI and TypeScript
 
-## Getting Started
+🚀 Boilerplate and Starter for Next.js, Chakra-UI and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Chakra-UI.
 
-First, run the development server:
+Inspired by [ixartz boilerplace](https://github.com/ixartz/Next-js-Boilerplate)
 
-```bash
-npm run dev
-# or
+### Features
+
+Developer experience first:
+
+- 🔥 [Next.js](https://nextjs.org) for Static Site Generator
+- 🎨 Integrate with [Chakra-UI](https://chakra-ui.com/)
+- 💡 Light and dark mode included
+- 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
+- ✅ Strict Mode for TypeScript and React 17
+- ✏️ Linter with [ESLint](https://eslint.org) (default NextJS, NextJS Core Web Vitals and Airbnb configuration)
+- 🛠 Code Formatter with [Prettier](https://prettier.io)
+- 🦊 Husky for Git Hooks
+- 👓 [Conventional Commits](https://www.conventionalcommits.org/)
+- 👮 Role based authentication with [Next-Auth](https://next-auth.js.org/)
+- 🚫 Lint-staged for running linters on Git staged files
+- 🗂 VSCode configuration: Debug, Settings, Tasks and extension for ESLint, Prettier, TypeScript
+- 🤖 SEO metadata, JSON-LD and Open Graph tags with Next SEO
+- ⚙️ [Bundler Analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
+- 🖱️ One click deployment with Vercel (or manual deployment to any hosting services)
+- 💯 Maximize lighthouse score
+
+Built-in feature from Next.js:
+
+- ☕ Minify HTML & CSS
+- 💨 Live reload
+- ✅ Cache busting
+
+### Requirements
+
+- Node.js and npm or yarn
+
+### Getting started
+
+Run the following command on your local environment:
+
+```
+git clone --depth=1 https://github.com/paulbtw/nextjs-auth.git my-project-name
+cd my-project-name
+yarn install
+```
+
+Then, you can run locally in development mode with live reload:
+
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your favorite browser to see your project.
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+.
+├── README.md                # README file
+├── next.config.js           # Next JS configuration
+├── public                   # Public folder
+│   └── assets
+│       └── img              # Images folder
+├── src
+│   ├── components           # All components are located here
+│   ├── config               # Configuration files
+│   ├── context              # Context folder
+│   ├── hooks                # Custom hooks folder
+│   ├── layout               # Default layout
+│   ├── models               # extended next-auth models
+│   ├── pages                # Next JS pages
+│   ├── theme                # Edited Chakra-UI theme
+│   ├── types                # Custom or extended typescript types
+│   └── utils                # Utility folder
+├── .env                     # Enviromental variables
+└── tsconfig.json            # TypeScript configuration
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Customization
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can easily configure Next js Boilerplate. Please change the following file:
 
-## Learn More
+- `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-16x16.png` and `public/favicon-32x32.png`: your website favicon, you can generate from https://favicon.io/favicon-converter/
+- `src/theme/main.css`: your custom theme file using Chakra-UI
+- `src/config/AppConfig.ts`: configuration file
+- `src/layout/DefaultLayout.tsx`: default theme
 
-To learn more about Next.js, take a look at the following resources:
+### Deploy to production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can see the results locally in production mode with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+$ yarn build
+$ yarn start
+```
 
-## Deploy on Vercel
+The generated HTML and CSS files are minified (built-in feature from Next js).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can create an optimized production build with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+yarn build-prod
+```
+
+### Deploy to Vercel
+
+Deploy this Next JS Boilerplate on Vercel in one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fpaulbtw%2Fnextjs-auth)
+
+### VSCode information (optional)
+
+If you are VSCode users, you can have a better integration with VSCode by installing the suggested extension in `.vscode/extension.json`. The starter code comes up with Settings for a seamless integration with VSCode. The Debug configuration is also provided for frontend and backend debugging experience.
+
+Pro tips: if you need a project wide type checking with TypeScript, you can run a build with <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> on Mac.
+
+### Contributions
+
+Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
+
+### License
+
+Licensed under the MIT License, Copyright © 2020
+
+See [LICENSE](LICENSE) for more information.
