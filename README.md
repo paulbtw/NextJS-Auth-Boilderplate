@@ -2,7 +2,7 @@
 
 🚀 Boilerplate and Starter for Next.js, Chakra-UI and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Chakra-UI.
 
-Inspired by [ixartz boilerplace](https://github.com/ixartz/Next-js-Boilerplate)
+Inspired by [ixartz boilerplate](https://github.com/ixartz/Next-js-Boilerplate)
 
 ### Features
 
@@ -40,7 +40,7 @@ Built-in feature from Next.js:
 Run the following command on your local environment:
 
 ```
-git clone --depth=1 https://github.com/paulbtw/nextjs-auth.git my-project-name
+git clone --depth=1 https://github.com/paulbtw/NextJS-Auth-Boilderplate.git my-project-name
 cd my-project-name
 yarn install
 ```
@@ -105,7 +105,7 @@ yarn build-prod
 
 Deploy this Next JS Boilerplate on Vercel in one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fpaulbtw%2Fnextjs-auth)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fpaulbtw%2Fnextjs-auth-boilderplate)
 
 ### VSCode information (optional)
 
