@@ -21,6 +21,7 @@
     "@chakra-ui/skeleton": "^1.1.18",
     "@emotion/react": "11",
     "@emotion/styled": "11",
+    "cross-env": "^7.0.3",
     "framer-motion": "4",
     "husky": "^7.0.2",
     "next": "11.1.0",
