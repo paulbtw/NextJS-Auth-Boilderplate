@@ -16,9 +16,9 @@ export const Auth: FC<AuthEnabledComponentConfig> = ({ children, auth }) => {
     if (!curUser || !auth.role.some((v) => v === curUser.role)) {
       if (auth.redirectUrl) {
         router.push(auth.redirectUrl);
-        return;
+      } else {
+        signIn();
       }
-      signIn();
     } // If not authenticated, force log in
   }, [curUser, loading, auth, router]);
 
